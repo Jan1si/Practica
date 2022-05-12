@@ -11,13 +11,13 @@ class MainController extends Controller
 {
     public function index(){
         $news = News::all();
-        return view('pages.index', [
+        return view('pages.index.index', [
             'news'=>$news
         ]);
     }
 
     public function about_us(){
-        return view('pages.about_us');
+        return view('pages.about.about_us');
     }
 
     public function collective(){
@@ -25,7 +25,7 @@ class MainController extends Controller
         $minor = Collective::where('role','minor')->get();
         $rest = Collective::where('role','rest')->get();
 
-        return view('pages.collective',[
+        return view('pages.collective.collective',[
             'main' => $main,
             'minor' => $minor,
             'rest' => $rest
@@ -34,11 +34,11 @@ class MainController extends Controller
 
     public function conditions(){
         $documnet = Documents::where('type', 'type_3')->get();
-        return view('pages.conditions',[
+        return view('pages.conditions.conditions',[
             'document'=>$documnet
         ]);
     }
-    
+
     public function finance(){
         return view('pages.finance');
     }
@@ -46,17 +46,17 @@ class MainController extends Controller
     public function documents(){
         $documnet_one = Documents::where('type', 'type_1')->get();
         $documnet_two = Documents::where('type', 'type_2')->get();
-        return view('pages.documents',[
+        return view('pages.documents.documents',[
             'documnet_one'=> $documnet_one,
             'documnet_two' =>$documnet_two
         ]);
     }
 
     public function links(){
-        return view('pages.links');
+        return view('pages.links.links');
     }
 
     public function contacts(){
-        return view('pages.contacts');
+        return view('pages.contact.contacts');
     }
 }
