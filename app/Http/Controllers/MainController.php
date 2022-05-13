@@ -59,4 +59,12 @@ class MainController extends Controller
     public function contacts(){
         return view('pages.contact.contacts');
     }
+
+    public function signin(){
+        return view('pages.auth.signin');
+    }
+
+    public function signup(){
+        return view('pages.auth.signup');
+    }
 }

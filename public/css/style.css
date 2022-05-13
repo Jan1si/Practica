@@ -1208,7 +1208,7 @@
   width: 50%;
   color: #709bce;
   text-decoration: none;
-  
+
 }
 .pers__item p{
   text-align: left;
@@ -1242,7 +1242,7 @@
 .table tbody tr{
   border-bottom: 1px solid #b8b8b8;
   text-align: left;
-  
+
 }
 
 .table tbody tr td{
@@ -1320,4 +1320,56 @@
   width: fit-content;
   color: #02499f;
   text-decoration: none;
+}
+
+.title__block{
+    color: #c37894;
+}
+
+.form__registration, .form__login{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    max-width:400px;
+}
+.form-group{
+    display: flex;
+    flex-direction: column;
+    margin: 5px 0;
+}
+.form-group>input{
+    height: 35px;
+    padding: 0 10px;
+    font-size: 17px;
+    margin-top: 3px;
+}
+.form-group>label{
+    font-size: 18px;
+    color: #1a202c;
+}
+
+.link__form{
+    margin: 5px 0;
+    text-decoration: none;
+    color: #316bb3;
+    width: fit-content;
+    padding: 2px;
+    border-bottom: .5px solid #316bb3;
+}
+
+.button-form>.btn-submit{
+    margin-top: 15px;
+    background: #316bb3;
+    border: none;
+    cursor:pointer;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 10px 25px;
+}
+
+.error{
+    color: #a11d1d;
+    font-style: italic;
+    font-size: 14px;
+    padding: 2px 0;
 }

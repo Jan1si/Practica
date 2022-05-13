@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
+use \App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,3 +24,9 @@ Route::get('/documents', [MainController::class, 'documents'])->name('documents'
 Route::get('/conditions', [MainController::class, 'conditions'])->name('conditions');
 
 
+Route::get('/signin', [MainController::class, 'signin'])->name('signin');
+Route::get('/signup', [MainController::class, 'signup'])->name('signup');
+
+
+Route::post('/signin/register', [AuthController::class, 'login'])->name('login');
+Route::post('/signup/register', [AuthController::class, 'register'])->name('register');

@@ -1,6 +1,6 @@
 <div class="wrapp__footer">
   <div class="head__footer">
-    <a href="#">Вход</a>
+    <a href="{{Route('signin')}}">Вход</a>
     <a href="#">Сайт поддержки пользователей</a>
   </div>
   <div class="body__footer">
@@ -24,7 +24,7 @@
         <a href="#">Использование материалов свйта</a>
       </div>
       <div class="metrik__block">
-        
+
       </div>
     </div>
   </div>
