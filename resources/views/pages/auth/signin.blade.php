@@ -28,7 +28,6 @@
             <div class="button-form">
                 <button class="btn-submit" type="submit">Войти</button>
             </div>
-
         </form>
     </div>
 

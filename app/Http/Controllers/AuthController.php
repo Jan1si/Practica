@@ -18,7 +18,7 @@ class AuthController extends Controller
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->password = bcrypt($request->input('password'));
-        $user->role_id = $user->roles()->find(1)->id;
+        $user->role_id = $role->find(1)->id;
         $user->save();
         return redirect()->back();
     }
@@ -29,7 +29,7 @@ class AuthController extends Controller
             'email' => $email,
             'password' => $password,
         ]))
-            return redirect()->back()->withErrors(['password' => 'Всё ок']);
+            return redirect()->route('profile');
         else  return redirect()->back()->withErrors(['password' => 'Непревельный логин или пароль']);
     }
     public function logout(Request $request){}

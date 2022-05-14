@@ -60,6 +60,10 @@ class MainController extends Controller
         return view('pages.contact.contacts');
     }
 
+    public function profile(){
+        return view('pages.profile.index');
+    }
+
     public function signin(){
         return view('pages.auth.signin');
     }

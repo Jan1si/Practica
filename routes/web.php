@@ -30,3 +30,6 @@ Route::get('/signup', [MainController::class, 'signup'])->name('signup');
 
 Route::post('/signin/register', [AuthController::class, 'login'])->name('login');
 Route::post('/signup/register', [AuthController::class, 'register'])->name('register');
+
+
+Route::get('/profile', [MainController::class, 'profile'])->middleware('user')->name('profile');
