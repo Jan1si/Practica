@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\mailController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use \App\Http\Controllers\AuthController;
+use \Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,7 +30,7 @@ Route::get('/signin', [MainController::class, 'signin'])->name('signin');
 Route::get('/signup', [MainController::class, 'signup'])->name('signup');
 
 
-Route::post('/signin/register', [AuthController::class, 'login'])->name('login');
+Route::post('/signin/login', [AuthController::class, 'login'])->name('login');
 Route::post('/signup/register', [AuthController::class, 'register'])->name('register');
 
 

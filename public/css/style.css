@@ -1325,7 +1325,9 @@
 .title__block{
     color: #c37894;
 }
-
+.sub-title__block{
+    margin-top: 20px;
+}
 .form__registration, .form__login{
     margin-top: 20px;
     display: flex;
@@ -1343,6 +1345,13 @@
     font-size: 17px;
     margin-top: 3px;
 }
+
+.form-group>textarea{
+    max-width: 400px;
+    height: 200px;
+    resize: vertical;
+}
+
 .form-group>label{
     font-size: 18px;
     color: #1a202c;

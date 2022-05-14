@@ -40,7 +40,7 @@ class MainController extends Controller
     }
 
     public function finance(){
-        return view('pages.finance');
+        return view('pages.finance.finance');
     }
 
     public function documents(){
@@ -57,7 +57,7 @@ class MainController extends Controller
     }
 
     public function contacts(){
-        return view('pages.contact.contacts');
+        return view('pages.contacts.contacts');
     }
 
     public function profile(){
