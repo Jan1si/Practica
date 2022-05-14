@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AuthUserRequest;
 use App\Http\Requests\StoreUserRequest;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,11 +13,12 @@ use Illuminate\Support\Facades\Hash;
 class AuthController extends Controller
 {
     public function register(StoreUserRequest $request){
+        $role = Role::all();
         $user = new User();
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->password = bcrypt($request->input('password'));
-        $user->role_id = 2;
+        $user->role_id = $user->roles()->find(1)->id;
         $user->save();
         return redirect()->back();
     }
