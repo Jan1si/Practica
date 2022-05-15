@@ -1,7 +1,7 @@
 <div class="wrapp__footer">
   <div class="head__footer">
     @if(Auth::user())
-          <a href="{{Route('signin')}}">Выйти({{Auth::user()->name}})</a>
+          <a href="{{Route('logout')}}">Выйти({{Auth::user()->name}})</a>
       @else
         <a href="{{Route('signin')}}">Вход</a>
     @endif

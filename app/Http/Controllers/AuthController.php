@@ -32,7 +32,10 @@ class AuthController extends Controller
             return redirect()->route('profile');
         else  return redirect()->back()->withErrors(['password' => 'Непревельный логин или пароль']);
     }
-    public function logout(Request $request){
-
+    public function logout(){
+        if(Auth::check()){
+            Auth::logout();
+            return redirect()->route('index');
+        }
     }
 }
