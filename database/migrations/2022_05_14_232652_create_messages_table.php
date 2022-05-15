@@ -13,16 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('message', function (Blueprint $table) {
+        Schema::create('messages', function (Blueprint $table) {
             $table->id();
 //            $table->string('user');
             $table->text('message');
             $table->timestamps();
         });
 
-//        Schema::table('message', function (Blueprint $table){
-//            $table->foreignId('user_id')->references('id')->on('users');
-//        });
+        Schema::table('messages', function (Blueprint $table){
+            $table->foreignId('user_id')->references('id')->on('users');
+        });
     }
 
     /**
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('message');
+        Schema::dropIfExists('messages');
     }
 };

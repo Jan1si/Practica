@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use \App\Http\Controllers\AuthController;
 use \Illuminate\Support\Facades\Auth;
+use \App\Http\Controllers\MessageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,3 +36,4 @@ Route::post('/signup/register', [AuthController::class, 'register'])->name('regi
 
 
 Route::get('/profile', [MainController::class, 'profile'])->middleware('user')->name('profile');
+Route::post('/profile/send_message', [MessageController::class, 'sendMessage'])->middleware('user')->name('message');

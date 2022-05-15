@@ -12,10 +12,11 @@
     <div class="sub-title__block">
         <h3>Оставить отзыв</h3>
     </div>
-    <form action="" class="form__push-email" method="post">
+    <form action="{{route('message')}}" class="form__push-message" method="post">
         @csrf
+        <input name="user_id" type="hidden" value="{{Auth::user()->id}}">
         <div class="form-group">
-            <label for="name">Ваше сообщение</label>
+            <label for="message">Ваше сообщение</label>
             <textarea name="message" required></textarea>
             @error('message')
             <div class="error">{{ $message }}</div>
