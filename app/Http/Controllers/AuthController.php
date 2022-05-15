@@ -15,16 +15,16 @@ class AuthController extends Controller
     public function register(StoreUserRequest $request){
         $role = Role::all();
         $user = new User();
-        $user->name = $request->input('name');
-        $user->email = $request->input('email');
-        $user->password = bcrypt($request->input('password'));
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->ipassword);
         $user->role_id = $role->find(1)->id;
         $user->save();
         return redirect()->back();
     }
     public function login(AuthUserRequest $request){
-        $password = $request->input('password');
-        $email = $request->input('email');
+        $password = $request->password;
+        $email = $request->email;
         if(Auth::attempt([
             'email' => $email,
             'password' => $password,

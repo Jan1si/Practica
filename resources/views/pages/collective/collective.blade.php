@@ -9,7 +9,8 @@
       <div class="content__block">
         <div class="collective__block">
           <h2>Работники образовательной организации</h2>
-          @if(empty($main))
+          @if($main && $main->count())
+
           <div class="collective__type">
             <h3>Руководство образовательной организации<span>/{{$main->count()}} чел</span></h3>
             <div class="list__personal">
@@ -21,9 +22,9 @@
                 @endforeach
             </div>
           </div>
-              @else
+            @else
           @endif
-            @if(empty($minor))
+            @if($minor && $minor->count())
           <div class="collective__type">
             <h3>Педагогические работники образовательной организации<span>/{{$minor->count()}} чел</span></h3>
             <div class="list__personal">
@@ -35,9 +36,9 @@
               @endforeach
             </div>
           </div>
-                @else
+            @else
             @endif
-            @if(empty($rest))
+            @if($rest && $rest->count())
             <div class="collective__type">
               <h3>Иные работники образовательной организации<span>/{{$rest->count()}} чел</span></h3>
               <div class="list__personal">
