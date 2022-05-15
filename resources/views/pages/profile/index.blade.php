@@ -6,8 +6,11 @@
 @section('content')
 
 <div class="content__block">
-    <div class="title__block">
+    <div class="title__block profile__title">
         <h2>Здравствуйте {{Auth::user()->name}}</h2>
+        @if(Auth::user()->role_id == 2)
+            <a href="{{route('view-table')}}">Панель администратора</a>
+        @endif
     </div>
     <div class="sub-title__block">
         <h3>Оставить отзыв</h3>

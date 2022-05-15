@@ -1382,3 +1382,17 @@
     font-size: 14px;
     padding: 2px 0;
 }
+
+.profile__title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.profile__title>a{
+    background: #316bb3;
+    color: #ffffff;
+    height: fit-content;
+    padding: 10px 20px;
+    text-decoration: none;
+}

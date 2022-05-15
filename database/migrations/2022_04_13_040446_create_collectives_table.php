@@ -20,6 +20,10 @@ return new class extends Migration
             $table->string('postition');
             $table->timestamps();
         });
+
+        Schema::table('collectives', function (Blueprint $table){
+            $table->foreignId('post_collectives_id')->references('id')->on('post_collectives');
+        });
     }
 
     /**

@@ -13,6 +13,6 @@ class MessageController extends Controller
         $message->message = $request->message;
         $message->user_id = $request->user_id;
         $message->save();
-        return redirect()->back()->with;
+        return redirect()->back();
     }
 }

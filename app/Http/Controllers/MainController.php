@@ -33,22 +33,25 @@ class MainController extends Controller
     }
 
     public function conditions(){
-        $documnet = Documents::where('type', 'type_3')->get();
+        $documnets = Documents::all();
+        $arr = Documents::all()->toArray();
         return view('pages.conditions.conditions',[
-            'document'=>$documnet
+            'documents'=>$documnets,
+            'arr'=>$arr
         ]);
     }
 
     public function finance(){
-        return view('pages.finance.finance');
+        $documnets = Documents::all();
+        return view('pages.finance.finance',[
+            'documnets'=> $documnets
+        ]);
     }
 
     public function documents(){
-        $documnet_one = Documents::where('type', 'type_1')->get();
-        $documnet_two = Documents::where('type', 'type_2')->get();
+        $documnets = Documents::all();
         return view('pages.documents.documents',[
-            'documnet_one'=> $documnet_one,
-            'documnet_two' =>$documnet_two
+            'documnets'=> $documnets
         ]);
     }
 
@@ -71,4 +74,6 @@ class MainController extends Controller
     public function signup(){
         return view('pages.auth.signup');
     }
+
+
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\mailController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
@@ -38,3 +39,5 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/profile', [MainController::class, 'profile'])->middleware('user')->name('profile');
 Route::post('/profile/send_message', [MessageController::class, 'sendMessage'])->middleware('user')->name('message');
+
+Route::get('/admin', [AdminController::class, 'admin_index'])->middleware('admin')->name('view-table');

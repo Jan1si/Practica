@@ -8,7 +8,7 @@
     <div class="print__block">
       <div class="content__block">
 
-        
+
         <div class="finance__block">
           <h2>Бюджетное финансирование</h2>
           <div class="block__table">
@@ -21,13 +21,15 @@
                 </tr>
               </thead>
               <tbody>
-                @for($i = 0; $i<5; $i++)
+                @foreach($documnets as $item)
+                    @if($item->type_documents_id === 4)
                 <tr>
-                  <td class="number__doc">{{$i+1}}</td>
-                  <td><a href="#">Информация об объеме образовательной деятельности, финансовое обеспечение которой осуществляется за счет бюджетных ассигнований федерального бюджета, бюджетов субъектов Российской Федерации, местных бюджетов, по договорам об образовании за счет средств физических и (или) юридических лиц</a> <span> 4,95 Мбайт / pdf</span></td>
+                  <td class="number__doc">{{$item->id}}</td>
+                  <td><a href="#">{{$item->name_doc}}</a> <span> 4,95 Мбайт / pdf</span></td>
                   <td><a href="#">Скачать</a></td>
                 </tr>
-                @endfor
+                    @endif
+                @endforeach
               </tbody>
             </table>
           </div>
@@ -45,13 +47,15 @@
                 </tr>
               </thead>
               <tbody>
-                @for($i = 0; $i<5; $i++)
-                <tr>
-                  <td class="number__doc">{{$i+1}}</td>
-                  <td><a href="#">Положение о порядке формирования и расходования внебюджетных средств</a> <span> 141,00 Кбайт / pdf</span></td>
-                  <td><a href="#">Скачать</a></td>
-                </tr>
-                @endfor
+              @foreach($documnets as $item)
+                  @if($item->type_documents_id === 5)
+                      <tr>
+                          <td class="number__doc">{{$item->id}}</td>
+                          <td><a href="#">{{$item->name_doc}}</a> <span> 4,95 Мбайт / pdf</span></td>
+                          <td><a href="#">Скачать</a></td>
+                      </tr>
+                  @endif
+              @endforeach
               </tbody>
             </table>
           </div>

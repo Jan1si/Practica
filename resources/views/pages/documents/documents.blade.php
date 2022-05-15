@@ -8,7 +8,7 @@
     <div class="print__block">
       <div class="content__block">
 
-        
+
         <div class="documents__block">
           <h2>Организационно-правовые документы</h2>
           <div class="desc__documnets__block">
@@ -24,12 +24,14 @@
                 </tr>
               </thead>
               <tbody>
-                @foreach($documnet_one as $item)
+                @foreach($documnets as $item)
+                    @if($item->type_documents_id === 1)
                 <tr>
                   <td class="number__doc">{{$item->id}}</td>
                   <td><a href="#">{{$item->name_doc}}</a> <span> 767,50 Кбайт / pdf</span></td>
                   <td><a href="#">Скачать</a></td>
                 </tr>
+                    @endif
                 @endforeach
               </tbody>
             </table>
@@ -51,12 +53,14 @@
                 </tr>
               </thead>
               <tbody>
-                @foreach($documnet_two as $item)
+                @foreach($documnets as $item)
+                    @if($item->type_documents_id === 2)
                 <tr>
                   <td class="number__doc">{{$item->id}}</td>
                   <td><a href="#">{{$item->name_doc}}</a> <span> 165,91 Кбайт / pdf</span></td>
                   <td><a href="#">Скачать</a></td>
                 </tr>
+                    @endif
                 @endforeach
               </tbody>
             </table>

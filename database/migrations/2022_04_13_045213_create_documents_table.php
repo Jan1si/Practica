@@ -16,8 +16,11 @@ return new class extends Migration
         Schema::create('documents', function (Blueprint $table) {
             $table->id();
             $table->string('name_doc');
-            $table->string('type');
             $table->timestamps();
+        });
+
+        Schema::table('documents', function (Blueprint $table){
+            $table->foreignId('type_documents_id')->references('id')->on('type_documents');
         });
     }
 
