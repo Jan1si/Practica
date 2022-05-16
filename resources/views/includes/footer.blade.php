@@ -2,8 +2,10 @@
   <div class="head__footer">
     @if(Auth::user())
           <a href="{{Route('logout')}}">Выйти({{Auth::user()->name}})</a>
+          <a href="{{Route('profile')}}">Профиль</a>
       @else
         <a href="{{Route('signin')}}">Вход</a>
+
     @endif
     <a href="#">Сайт поддержки пользователей</a>
   </div>

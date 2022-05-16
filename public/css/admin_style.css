@@ -38,69 +38,7 @@
 .table__container{
     width: 100%;
 }
-.header__table{
-    width: 100%;
-    text-align: left;
-}
-.body__table{
-    width: 100%;
-    margin-top: 20px;
-}
 
-.body__table>table{
-    width: 100%;
-}
-.body__table>table{
-    border-collapse: collapse;
-    border: 1px solid #eee;
-    width: 100%;
-    margin-bottom: 20px;
-}
-.body__table>table th {
-    font-weight: bold;
-    padding: 5px;
-    background: #efefef;
-    border: 1px solid #dddddd;
-}
-.body__table>table td{
-    padding: 5px 10px;
-    border: 1px solid #eee;
-    word-break: break-all;
-    text-align: left;
-}
-.body__table>table tbody tr:nth-child(odd){
-    background: #fff;
-}
-.body__table>table tbody tr:nth-child(even){
-    background: #F7F7F7;
-}
-
-.edit{
-    font-size: 18px;
-    font-weight: 600;
-    color: darkorange;
-    text-decoration: none;
-}
-
-.destroy{
-    font-size: 18px;
-    font-weight: 600;
-    color: #a11d1d;
-    text-decoration: none;
-}
-
-.add__table{
-    margin-top: 10px;
-}
-
-.add__data{
-    color: #3d8117;
-    font-size: 18px;
-    text-decoration: none;
-}
-.password{
-    max-width: 200px;
-}
 
 .message_user{
     max-width: 250px;

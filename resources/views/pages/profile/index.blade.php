@@ -15,7 +15,7 @@
     <div class="sub-title__block">
         <h3>Оставить отзыв</h3>
     </div>
-    <form action="{{route('message')}}" class="form__push-message" method="post">
+    <form action="{{route('massage_table.store')}}" class="form__push-message" method="post">
         @csrf
         <input name="user_id" type="hidden" value="{{Auth::user()->id}}">
         <div class="form-group">

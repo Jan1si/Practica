@@ -1,12 +1,16 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\TableMessageController;
+use App\Http\Controllers\Admin\TableRoleController;
+use App\Http\Controllers\Admin\TableUserController;
 use App\Http\Controllers\mailController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use \App\Http\Controllers\AuthController;
 use \Illuminate\Support\Facades\Auth;
 use \App\Http\Controllers\MessageController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,4 +44,18 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/profile', [MainController::class, 'profile'])->middleware('user')->name('profile');
 Route::post('/profile/send_message', [MessageController::class, 'sendMessage'])->middleware('user')->name('message');
 
-Route::get('/admin', [AdminController::class, 'admin_index'])->middleware('admin')->name('view-table');
+Route::middleware(['admin'])->group( function (){
+
+    Route::get('/admin', [AdminController::class, 'admin_index'])->name('view-table');
+
+    Route::get('/admin/users_table', [AdminController::class, 'users_table'])->name('users_table');
+    Route::get('/admin/roles_table', [AdminController::class, 'roles_table'])->name('roles_table');
+
+    Route::resource('massage_table', TableMessageController::class);
+    Route::resource('user_table', TableUserController::class);
+    Route::resource('role_table', TableRoleController::class);
+
+});
+
+
+

@@ -16,8 +16,6 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     public function  admin_index(){
-        $users = User::all();
-        $roles = Role::all();
         $type_documents = TypeDocument::all();
         $post_collective = PostCollective::all();
         $documents = Documents::all();
@@ -26,8 +24,6 @@ class AdminController extends Controller
         $messages = Message::all();
 
         return view('pages.admin.view-tables.index',[
-            'users' => $users,
-            'roles' => $roles,
             'type_documents' => $type_documents,
             'post_collective' => $post_collective,
             'documents' => $documents,
@@ -36,4 +32,19 @@ class AdminController extends Controller
             'messages' => $messages
         ]);
     }
+
+    public function users_table(){
+        $users = User::all();
+        return view('pages.admin.view-tables.users_table',[
+            'users'=>$users
+        ]);
+    }
+
+    public function roles_table(){
+        $roles = Role::all();
+        return view('pages.admin.view-tables.role_table',[
+            'roles'=>$roles
+        ]);
+    }
+
 }
