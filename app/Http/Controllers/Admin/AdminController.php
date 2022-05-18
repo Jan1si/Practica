@@ -47,4 +47,11 @@ class AdminController extends Controller
         ]);
     }
 
+    public function news_table(){
+        $news = News::all();
+        return view('pages.admin.view-tables.news_table',[
+            'news'=>$news
+        ]);
+    }
+
 }

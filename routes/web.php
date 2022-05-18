@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\TableMessageController;
+use App\Http\Controllers\Admin\TableNewsController;
 use App\Http\Controllers\Admin\TableRoleController;
 use App\Http\Controllers\Admin\TableUserController;
 use App\Http\Controllers\mailController;
@@ -50,10 +51,12 @@ Route::middleware(['admin'])->group( function (){
 
     Route::get('/admin/users_table', [AdminController::class, 'users_table'])->name('users_table');
     Route::get('/admin/roles_table', [AdminController::class, 'roles_table'])->name('roles_table');
-
+    Route::get('/admin/news_table', [AdminController::class, 'news_table'])->name('news_table');
     Route::resource('massage_table', TableMessageController::class);
     Route::resource('user_table', TableUserController::class);
     Route::resource('role_table', TableRoleController::class);
+    Route::resource('news_table', TableNewsController::class);
+
 
 });
 

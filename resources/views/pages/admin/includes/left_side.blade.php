@@ -11,7 +11,7 @@
             <span class="material-symbols-outlined">military_tech</span>
             <p>Роли</p>
         </a>
-        <a href="#" class="link__table">
+        <a href="{{route('news_table')}}" class="link__table">
             <span class="material-symbols-outlined">newspaper</span>
             <p>Новости</p>
         </a>
