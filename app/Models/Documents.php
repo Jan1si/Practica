@@ -9,7 +9,7 @@ class Documents extends Model
 {
     use HasFactory;
 
-    public function types(){
-        return $this->belongsToMany(TypeDocument::class);
+    public function type(){
+        return $this->belongsTo(TypeDocument::class);
     }
 }

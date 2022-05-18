@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\News;
+use App\Models\Documents;
+use App\Models\TypeDocument;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
-class TableNewsController extends Controller
+class TableDocumentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,7 +27,11 @@ class TableNewsController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.add_data.create_news');
+        $types = TypeDocument::all();
+        return view('pages.admin.add_data.create_document',[
+            'types' => $types
+        ]);
+
     }
 
     /**
@@ -36,18 +42,15 @@ class TableNewsController extends Controller
      */
     public function store(Request $request)
     {
-
-        $news = new News();
-        $news->title = $request->title;
-        if(!empty($request->file('image'))){
-            $path = $request->file('image')->store('img/news', 'public');
-            $news->image = $path;
-        }
-        $news->description = $request->description;
-        $news->save();
-
-        return redirect()->back();
-
+        $path = $request->file('doc')->store('doc/', 'public');
+        $size = substr(($request->doc->getSize()/1024)/1024, 0, 3);
+        $document = new Documents();
+        $document->name_doc = $request->file('doc')->getClientOriginalName();
+        $document->size_doc = $size;
+        $document->path_doc = $path;
+        $document->type_documents_id  = $request->type;
+        $document->save();
+        return redirect()->route('documents_table');
     }
 
     /**
@@ -69,10 +72,12 @@ class TableNewsController extends Controller
      */
     public function edit($id)
     {
-        $news = News::where('id', $id)->get();
-        return view('pages.admin.edit_data.edit_news',[
-            'news' => $news,
-            'id' => $id
+        $documents = Documents::where('id', $id)->get();
+        $types = TypeDocument::all();
+        return view('pages.admin.edit_data.edit_document',[
+            'documents' => $documents,
+            'types' => $types,
+            'id'=>$id
         ]);
     }
 
@@ -85,16 +90,11 @@ class TableNewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $news = News::find($id);
-        $news->title = $request->title;
-        if(!empty($request->file('image'))){
-            $path = $request->file('image')->store('img/news', 'public');
-            $news->image = $path;
-        }
-        $news->description = $request->description;
-        $news->save();
 
-        return redirect()->route('news_table');
+        $document = Documents::find($id);
+        $document->type_documents_id  = $request->type;
+        $document->save();
+        return redirect()->route('documents_table');
     }
 
     /**
@@ -105,7 +105,7 @@ class TableNewsController extends Controller
      */
     public function destroy($id)
     {
-        News::where('id', $id)->delete();
+        Documents::where('id', $id)->delete();
         return redirect()->back();
     }
 }

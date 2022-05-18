@@ -54,4 +54,11 @@ class AdminController extends Controller
         ]);
     }
 
+    public function documents_table(){
+        $documents = Documents::all();
+        return view('pages.admin.view-tables.documents_table',[
+            'documents'=>$documents
+        ]);
+    }
+
 }

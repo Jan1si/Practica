@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\News;
 use Illuminate\Http\Request;
 
-class TableNewsController extends Controller
+class TableCollectiveController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,7 +24,7 @@ class TableNewsController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.add_data.create_news');
+        //
     }
 
     /**
@@ -36,18 +35,7 @@ class TableNewsController extends Controller
      */
     public function store(Request $request)
     {
-
-        $news = new News();
-        $news->title = $request->title;
-        if(!empty($request->file('image'))){
-            $path = $request->file('image')->store('img/news', 'public');
-            $news->image = $path;
-        }
-        $news->description = $request->description;
-        $news->save();
-
-        return redirect()->back();
-
+        //
     }
 
     /**
@@ -69,11 +57,7 @@ class TableNewsController extends Controller
      */
     public function edit($id)
     {
-        $news = News::where('id', $id)->get();
-        return view('pages.admin.edit_data.edit_news',[
-            'news' => $news,
-            'id' => $id
-        ]);
+        //
     }
 
     /**
@@ -85,16 +69,7 @@ class TableNewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $news = News::find($id);
-        $news->title = $request->title;
-        if(!empty($request->file('image'))){
-            $path = $request->file('image')->store('img/news', 'public');
-            $news->image = $path;
-        }
-        $news->description = $request->description;
-        $news->save();
-
-        return redirect()->route('news_table');
+        //
     }
 
     /**
@@ -105,7 +80,6 @@ class TableNewsController extends Controller
      */
     public function destroy($id)
     {
-        News::where('id', $id)->delete();
-        return redirect()->back();
+        //
     }
 }
