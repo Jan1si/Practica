@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\PostCollective;
+use App\Models\TypeDocument;
 use Illuminate\Http\Request;
 
-class TablePostCollectiveController extends Controller
+class TableTypesDocumentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class TablePostCollectiveController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -25,7 +25,7 @@ class TablePostCollectiveController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.add_data.create_post');
+        return view('pages.admin.add_data.create_type');
     }
 
     /**
@@ -36,10 +36,11 @@ class TablePostCollectiveController extends Controller
      */
     public function store(Request $request)
     {
-        $post = new PostCollective();
-        $post->name = $request->name;
-        $post->save();
-        return redirect()->route('posts_collective_table');
+
+        $type = new TypeDocument();
+        $type->name = $request->name;
+        $type->save();
+        return redirect()->route('types_document_table');
     }
 
     /**
@@ -61,9 +62,9 @@ class TablePostCollectiveController extends Controller
      */
     public function edit($id)
     {
-        $post = PostCollective::where('id', $id)->get();
-        return view('pages.admin.edit_data.edit_post',[
-            'post'=>$post,
+        $types = TypeDocument::where('id', $id)->get();
+        return view('pages.admin.edit_data.edit_type',[
+            'types'=>$types,
             'id'=>$id
         ]);
     }
@@ -77,10 +78,10 @@ class TablePostCollectiveController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $post = PostCollective::find($id);
-        $post->name = $request->name;
-        $post->save();
-        return redirect()->route('posts_collective_table');
+        $type = TypeDocument::find($id);
+        $type->name = $request->name;
+        $type->save();
+        return redirect()->route('types_document_table');
     }
 
     /**
@@ -91,7 +92,7 @@ class TablePostCollectiveController extends Controller
      */
     public function destroy($id)
     {
-        PostCollective::where('id', $id)->delete();
+        TypeDocument::where('id', $id)->delete();
         return redirect()->back();
     }
 }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Collective;
+use App\Models\PostCollective;
 use Illuminate\Http\Request;
 
 class TableCollectiveController extends Controller
@@ -24,7 +26,10 @@ class TableCollectiveController extends Controller
      */
     public function create()
     {
-        //
+        $posts = PostCollective::all();
+        return view('pages.admin.add_data.create_collective',[
+            'posts'=>$posts
+        ]);
     }
 
     /**
@@ -35,7 +40,12 @@ class TableCollectiveController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $collective = new Collective();
+        $collective->name = $request->name;
+        $collective->postition = $request->position;
+        $collective->post_collectives_id = $request->post_collectives;
+        $collective->save();
+        return redirect()->route('collective_table');
     }
 
     /**
@@ -57,7 +67,14 @@ class TableCollectiveController extends Controller
      */
     public function edit($id)
     {
-        //
+        $collective = Collective::where('id',$id)->get();
+        $posts = PostCollective::all();
+        return view('pages.admin.edit_data.edit_collective',[
+            'collective'=>$collective,
+            'posts'=> $posts,
+            'id'=>$id
+        ]);
+
     }
 
     /**
@@ -69,7 +86,12 @@ class TableCollectiveController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $collective = Collective::find($id);
+        $collective->name = $request->name;
+        $collective->postition = $request->position;
+        $collective->post_collectives_id = $request->post_collectives;
+        $collective->save();
+        return redirect()->route('collective_table');
     }
 
     /**
@@ -80,6 +102,7 @@ class TableCollectiveController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Collective::where('id', $id)->delete();
+        return redirect()->back();
     }
 }

@@ -16,19 +16,13 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     public function  admin_index(){
-        $type_documents = TypeDocument::all();
         $post_collective = PostCollective::all();
-        $documents = Documents::all();
         $collective = Collective::all();
-        $news = News::all();
         $messages = Message::all();
 
         return view('pages.admin.view-tables.index',[
-            'type_documents' => $type_documents,
             'post_collective' => $post_collective,
-            'documents' => $documents,
             'collective' => $collective,
-            'news' => $news,
             'messages' => $messages
         ]);
     }
@@ -60,5 +54,35 @@ class AdminController extends Controller
             'documents'=>$documents
         ]);
     }
+
+    public function types_document_table(){
+        $types = TypeDocument::all();
+        return view('pages.admin.view-tables.types_document_table',[
+            'types'=>$types
+        ]);
+    }
+
+    public function collective_table(){
+        $collective = Collective::all();
+        return view('pages.admin.view-tables.collective_table',[
+            'collective'=>$collective
+        ]);
+    }
+
+    public function posts_collective_table(){
+        $posts = PostCollective::all();
+        return view('pages.admin.view-tables.posts_collective_table',[
+            'posts'=>$posts
+        ]);
+    }
+
+    public function message_table(){
+        $messages = Message::all();
+        return view('pages.admin.view-tables.message_table',[
+            'messages'=>$messages
+        ]);
+    }
+
+
 
 }

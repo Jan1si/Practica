@@ -18,7 +18,7 @@
                 @foreach($messages as $item)
                 <div class="message">
                     <div class="destroy__message">
-                        <form action="{{ route('massage_table.destroy', $item->id) }}" method="post">
+                        <form action="{{ route('message_table.destroy', $item->id) }}" method="post">
                             @CSRF
                             @method('DELETE')
                             <button>

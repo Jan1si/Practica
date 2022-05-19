@@ -10,6 +10,6 @@ class Collective extends Model
     use HasFactory;
 
     public function posts(){
-        return $this->belongsToMany(PostCollective::class);
+        return $this->belongsTo(PostCollective::class);
     }
 }

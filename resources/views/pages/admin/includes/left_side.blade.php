@@ -19,19 +19,19 @@
             <span class="material-symbols-outlined">description</span>
             <p>Документы</p>
         </a>
-        <a href="#" class="link__table">
+        <a href="{{ route('types_document_table') }}" class="link__table">
             <span class="material-symbols-outlined">category</span>
             <p>Категории документов</p>
         </a>
-        <a href="#" class="link__table">
+        <a href="{{ route('collective_table') }}" class="link__table">
             <span class="material-symbols-outlined">group</span>
             <p>Коллектив</p>
         </a>
-        <a href="#" class="link__table">
+        <a href="{{ route('posts_collective_table') }}" class="link__table">
             <span class="material-symbols-outlined">category</span>
             <p>Должности в коллективе</p>
         </a>
-        <a href="#" class="link__table">
+        <a href="{{ route('message_table') }}" class="link__table">
             <span class="material-symbols-outlined">android_messages</span>
             <p>Отзывы</p>
         </a>
